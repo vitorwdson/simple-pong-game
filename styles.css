@@ -1,0 +1,73 @@
+*, 
+*::after, 
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --hue: 200;
+  --saturation: 50%;
+  --foreground-color: hsl(var(--hue), var(--saturation), 75%);
+  --background-color: hsl(var(--hue), var(--saturation), 20%);
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  background-color: var(--background-color);
+}
+
+.score {
+  color: var(--foreground-color);
+  font-size: 1.5rem;
+  display: block;
+  text-align: center;
+}
+
+.score.points {
+  font-size: 2rem;
+}
+
+.paddle,
+.ball {  
+  position: absolute;
+  background-color: var(--foreground-color);
+}
+
+.paddle {
+  --height: 15vh;
+  --min: calc(var(--height) / 2);
+  --max: calc(100vh - var(--min));
+  --pos: 50;
+  --vh-pos: calc(var(--pos) * 1vh);
+
+  width: 1vh;
+  height: var(--height);
+  top: clamp(var(--min), var(--vh-pos), var(--max));
+  transform: translateY(-50%);
+}
+
+.paddle.left {
+  left: 1vh;
+}
+
+.paddle.right {
+  right: 1vh;
+}
+
+.ball {
+  --x: 50;
+  --y: 50;
+
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  top: calc(var(--y) * 1vh);
+  left: calc(var(--x) * 1vw);
+  transform: translate(-50%, -50%);
+}
+
