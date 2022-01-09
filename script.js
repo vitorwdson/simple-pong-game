@@ -29,10 +29,11 @@ const Game = {
   },
   
   frame(time) {
+    // Skip the first frame
     if (Game.lastFrameTime) {
+      // Calculates the time between the last and current frames
       const timeDelta = time - Game.lastFrameTime;
       
-      // Function to be called each frame
       Game.updateColor(timeDelta);
       Game.updateScore();
       Game.updateBall(timeDelta);
@@ -46,11 +47,8 @@ const Game = {
   },
 
   updateColor(timeDelta) {
-    Game.hue += 0.01 * timeDelta;
-    if (Game.hue > 360) {
-      Game.hue = 0;
-    }
-
+    // Increases the hue and sets it
+    Game.hue += 0.005 * timeDelta;
     document.documentElement.style.setProperty('--hue', Math.floor(Game.hue));
   },
 

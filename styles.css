@@ -2,15 +2,14 @@
 *::after, 
 *::before {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 :root {
   --hue: 200;
-  --saturation: 50%;
-  --foreground-color: hsl(var(--hue), var(--saturation), 75%);
-  --background-color: hsl(var(--hue), var(--saturation), 20%);
+  --saturation: 90%;
+  --background-color: hsl(var(--hue), var(--saturation), 15%);
+  --background-color: linear-gradient(135deg, hsl(var(--hue), var(--saturation), 20%) 0%, hsl(var(--hue), var(--saturation), 40%) 100%);
+  --foreground-color: #fff9;
 }
 
 body {
@@ -18,18 +17,19 @@ body {
   height: 100vh;
   overflow: hidden;
 
-  background-color: var(--background-color);
+  background: var(--background-color);
 }
 
 .score {
   color: var(--foreground-color);
-  font-size: 1.5rem;
+  font-size: 2rem;
   display: block;
   text-align: center;
+  opacity: 0.8;
 }
 
 .score.points {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .paddle,
@@ -63,8 +63,8 @@ body {
   --x: 50;
   --y: 50;
 
-  width: 5vh;
-  height: 5vh;
+  width: 4vh;
+  height: 4vh;
   border-radius: 50%;
   top: calc(var(--y) * 1vh);
   left: calc(var(--x) * 1vw);
