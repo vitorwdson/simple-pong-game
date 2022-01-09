@@ -1,0 +1,1 @@
+# This project is a simple pong game made using HTML, CSS and JavaScript
